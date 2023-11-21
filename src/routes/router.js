@@ -1,28 +1,25 @@
 import { ROUTE_CHANGE_EVENT, ROUTE_POPPED_EVENT } from "../constants/event.js";
 
-export const initRouter = (onRoute, onPopped = null) => {
+export const initRouter = (onChangeRoute) => {
   window.addEventListener(ROUTE_CHANGE_EVENT, (event) => {
     const { nextUrl, state } = event.detail;
 
     if (nextUrl) {
       history.pushState(state ? state : null, null, nextUrl);
-      onRoute();
+      onChangeRoute();
     }
   });
 
-  if (onPopped === null) return;
-
   window.addEventListener(ROUTE_POPPED_EVENT, () => {
-    onPopped();
+    onChangeRoute();
   });
 };
 
-export const navigate = (nextUrl, state = null) => {
+export const navigate = (nextUrl) => {
   window.dispatchEvent(
     new CustomEvent(ROUTE_CHANGE_EVENT, {
       detail: {
         nextUrl,
-        state,
       },
     })
   );
