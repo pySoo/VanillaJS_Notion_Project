@@ -1,8 +1,8 @@
-import { SELECTOR } from "../../constants/selector.js";
 import { TAG } from "../../constants/tag.js";
 import { PATH } from "../../routes/path.js";
 import { navigate } from "../../routes/router.js";
 import { createCustomElement } from "../../utils/dom.js";
+import { CSS_SELECTOR } from "../cssSelector.js";
 
 export default function ProfileHeader({ $target }) {
   const $profileImage = createCustomElement({
@@ -22,7 +22,7 @@ export default function ProfileHeader({ $target }) {
   const $profileHeader = createCustomElement({
     tag: TAG.DIV,
     props: {
-      id: SELECTOR.HEADER.PROFILE,
+      id: CSS_SELECTOR.HEADER.PROFILE,
     },
     children: [$profileImage, $profileTitle],
   });

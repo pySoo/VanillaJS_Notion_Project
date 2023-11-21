@@ -1,8 +1,8 @@
 import App from "./App.js";
-import { SELECTOR } from "./constants/selector.js";
+import { CSS_SELECTOR } from "./components/cssSelector.js";
 import { $ } from "./utils/dom.js";
 
-const $app = $(`#${SELECTOR.ROOT}`);
+const $app = $(`#${CSS_SELECTOR.ROOT}`);
 
 try {
   new App({ $target: $app });
