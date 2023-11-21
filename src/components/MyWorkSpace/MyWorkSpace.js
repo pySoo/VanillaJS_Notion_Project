@@ -9,7 +9,7 @@ export default function MyWorkSpace({ $target, navigateToDocument }) {
     tag: TAG.DIV,
   });
 
-  $target.append($myWorkSpace);
+  $target.appendChild($myWorkSpace);
 
   this.updateAllDocuments = async () => {
     const documentList = await getAllDocuments();
