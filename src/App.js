@@ -1,5 +1,5 @@
+import { CSS_SELECTOR } from "./components/Editor/cssSelector.js";
 import SideBar from "./components/SideBar.js";
-import { SELECTOR } from "./constants/selector.js";
 import DocumentEditPage from "./pages/DocumentEditPage.js";
 import { PATH } from "./routes/path.js";
 import { initRouter, navigate } from "./routes/router.js";
@@ -10,7 +10,7 @@ export default function App({ $target }) {
   const $sideBar = new SideBar({
     $target,
     navigateToDocument: (id) => {
-      navigate(`${PATH.DOCUMENTS}/${id}`, { id });
+      navigate(`${PATH.DOCUMENTS}/${id}`);
     },
   });
 
@@ -25,7 +25,7 @@ export default function App({ $target }) {
   this.route = async () => {
     const { pathname } = window.location;
 
-    const $editPageElement = $(`#${SELECTOR.EDIT.SECTION}`);
+    const $editPageElement = $(`#${CSS_SELECTOR.EDIT.SECTION}`);
     $editPageElement.style.display = "none";
 
     if (pathname.indexOf(PATH.DOCUMENTS) === 0) {

@@ -1,6 +1,6 @@
 import LinkedDocumentList from "../components/Document/LinkedDocumentList.js";
-import Editor from "../components/Editor.js";
-import { SELECTOR } from "../constants/selector.js";
+import Editor from "../components/Editor/Editor.js";
+import { CSS_SELECTOR } from "../components/Editor/cssSelector.js";
 import { TAG } from "../constants/tag.js";
 import { getDocument, updateDocument } from "../service/documents.js";
 import { debounce } from "../utils/debounce.js";
@@ -14,7 +14,7 @@ export default function DocumentEditPage({ $target, updateAllDocuments }) {
   const document = notionStorage.getItem();
 
   const handleEditing = debounce(async (document) => {
-    notionStorage.setItem({ ...document, tempSaveDate: new Date() });
+    notionStorage.setItem({ ...document });
 
     await updateDocument(document);
     updateAllDocuments();
@@ -24,7 +24,7 @@ export default function DocumentEditPage({ $target, updateAllDocuments }) {
 
   const $editPage = createCustomElement({
     tag: TAG.SECTION,
-    props: { id: SELECTOR.EDIT.SECTION },
+    props: { id: CSS_SELECTOR.EDIT.SECTION },
   });
 
   const $editor = new Editor({
