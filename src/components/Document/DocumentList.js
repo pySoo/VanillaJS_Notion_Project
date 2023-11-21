@@ -1,4 +1,3 @@
-import { SELECTOR } from "../../constants/selector.js";
 import { TAG } from "../../constants/tag.js";
 import { PATH } from "../../routes/path.js";
 import { navigate } from "../../routes/router.js";
@@ -8,11 +7,12 @@ import {
   postDocument,
 } from "../../service/documents.js";
 import { $, createCustomElement, createDocumentTree } from "../../utils/dom.js";
+import { CSS_SELECTOR } from "./cssSelector.js";
 
 export default function DocumentList({ $target, state, navigateToDocument }) {
   const $documentList = createCustomElement({
     tag: TAG.UL,
-    props: { id: SELECTOR.DOCUMENT.LIST },
+    props: { id: CSS_SELECTOR.DOCUMENT.LIST },
   });
 
   $target.appendChild($documentList);
@@ -29,7 +29,7 @@ export default function DocumentList({ $target, state, navigateToDocument }) {
 
     if (this.state && this.state.length > 0) {
       this.state.forEach((node) => {
-        const $documentTree = createDocumentTree(node, navigateToDocument);
+        const $documentTree = createDocumentTree(node);
         $documentList.appendChild($documentTree);
       });
     }
@@ -43,12 +43,12 @@ export default function DocumentList({ $target, state, navigateToDocument }) {
   $documentList.addEventListener("click", async (event) => {
     if (event.target == null) return;
 
-    const $documentDiv = event.target.closest(`#${SELECTOR.DOCUMENT.ITEM}`);
+    const $documentDiv = event.target.closest(`#${CSS_SELECTOR.DOCUMENT.ITEM}`);
     const { id } = $documentDiv.dataset;
 
     if (
-      event.target.id === SELECTOR.DOCUMENT.TITLE_GROUP ||
-      event.target.id === SELECTOR.DOCUMENT.TITLE
+      event.target.id === CSS_SELECTOR.DOCUMENT.TITLE_GROUP ||
+      event.target.id === CSS_SELECTOR.DOCUMENT.TITLE
     ) {
       navigateToDocument(id);
       return;
@@ -60,10 +60,12 @@ export default function DocumentList({ $target, state, navigateToDocument }) {
 
     const buttonId = $button.id;
 
-    if (buttonId === SELECTOR.DOCUMENT.EXPAND_BTN) {
-      const $documentTree = event.target.closest(`#${SELECTOR.DOCUMENT.TREE}`);
+    if (buttonId === CSS_SELECTOR.DOCUMENT.EXPAND_BTN) {
+      const $documentTree = event.target.closest(
+        `#${CSS_SELECTOR.DOCUMENT.TREE}`
+      );
       const $childrenElement = $(
-        `#${SELECTOR.DOCUMENT.CHIDREN}`,
+        `#${CSS_SELECTOR.DOCUMENT.CHIDREN}`,
         $documentTree
       );
 
@@ -72,7 +74,7 @@ export default function DocumentList({ $target, state, navigateToDocument }) {
       return;
     }
 
-    if (buttonId === SELECTOR.DOCUMENT.ADD_BTN) {
+    if (buttonId === CSS_SELECTOR.DOCUMENT.ADD_BTN) {
       const createdPost = await postDocument({ title: "", parent: id });
       navigate(`${PATH.DOCUMENTS}/${createdPost.id}`);
 
@@ -81,7 +83,7 @@ export default function DocumentList({ $target, state, navigateToDocument }) {
       return;
     }
 
-    if (buttonId === SELECTOR.DOCUMENT.DELTE_BTN) {
+    if (buttonId === CSS_SELECTOR.DOCUMENT.DELTE_BTN) {
       if (confirm("정말 삭제하시겠습니까?")) {
         await deleteDocument(id);
         navigate("/");

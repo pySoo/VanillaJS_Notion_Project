@@ -1,5 +1,5 @@
 import DocumentItem from "../components/Document/DocumentItem.js";
-import { SELECTOR } from "../constants/selector.js";
+import { CSS_SELECTOR } from "../components/Document/cssSelector.js";
 import { TAG } from "../constants/tag.js";
 
 export const $ = (selector, element = document) =>
@@ -23,7 +23,7 @@ export const createDocumentTree = (node) => {
   const $documentTree = createCustomElement({
     tag: TAG.LI,
     props: {
-      id: SELECTOR.DOCUMENT.TREE,
+      id: CSS_SELECTOR.DOCUMENT.TREE,
     },
   });
 
@@ -36,7 +36,7 @@ export const createDocumentTree = (node) => {
     const $childrenElement = createCustomElement({
       tag: TAG.LI,
       props: {
-        id: SELECTOR.DOCUMENT.CHIDREN,
+        id: CSS_SELECTOR.DOCUMENT.CHIDREN,
       },
     });
 

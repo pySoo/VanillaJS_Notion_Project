@@ -1,16 +1,15 @@
-import { SELECTOR } from "../../constants/selector.js";
 import { TAG } from "../../constants/tag.js";
 import { createCustomElement } from "../../utils/dom.js";
 import { IconSVG } from "../Common/IconSVG.js";
+import { CSS_SELECTOR } from "./cssSelector.js";
 
 export default function DocumentItem({ $target, state }) {
-  const documentTitle = state.title && state.title.trim();
   const documentTitle = state.title?.trim();
 
   const $expandBtn = createCustomElement({
     tag: TAG.BUTTON,
     props: {
-      id: SELECTOR.DOCUMENT.EXPAND_BTN,
+      id: CSS_SELECTOR.DOCUMENT.EXPAND_BTN,
       innerHTML: IconSVG.expand,
     },
   });
@@ -18,7 +17,7 @@ export default function DocumentItem({ $target, state }) {
   const $documentTitle = createCustomElement({
     tag: TAG.DIV,
     props: {
-      id: SELECTOR.DOCUMENT.TITLE_GROUP,
+      id: CSS_SELECTOR.DOCUMENT.TITLE_GROUP,
       textContent:
         documentTitle === "" ? "제목을 입력해 주세요" : documentTitle,
     },
@@ -27,7 +26,7 @@ export default function DocumentItem({ $target, state }) {
   const $titleElement = createCustomElement({
     tag: TAG.DIV,
     props: {
-      id: SELECTOR.DOCUMENT.TITLE,
+      id: CSS_SELECTOR.DOCUMENT.TITLE,
     },
     children: [$expandBtn, $documentTitle],
   });
@@ -35,7 +34,7 @@ export default function DocumentItem({ $target, state }) {
   const $addBtn = createCustomElement({
     tag: TAG.BUTTON,
     props: {
-      id: SELECTOR.DOCUMENT.ADD_BTN,
+      id: CSS_SELECTOR.DOCUMENT.ADD_BTN,
       innerHTML: IconSVG.add,
     },
   });
@@ -43,7 +42,7 @@ export default function DocumentItem({ $target, state }) {
   const $deleteBtn = createCustomElement({
     tag: TAG.BUTTON,
     props: {
-      id: SELECTOR.DOCUMENT.DELTE_BTN,
+      id: CSS_SELECTOR.DOCUMENT.DELTE_BTN,
       innerHTML: IconSVG.delete,
     },
   });
@@ -51,7 +50,7 @@ export default function DocumentItem({ $target, state }) {
   const $itemButtonElement = createCustomElement({
     tag: TAG.DIV,
     props: {
-      id: SELECTOR.DOCUMENT.BUTTON,
+      id: CSS_SELECTOR.DOCUMENT.BUTTON,
     },
     children: [$addBtn, $deleteBtn],
   });
@@ -59,7 +58,7 @@ export default function DocumentItem({ $target, state }) {
   const $documentItem = createCustomElement({
     tag: TAG.DIV,
     props: {
-      id: SELECTOR.DOCUMENT.ITEM,
+      id: CSS_SELECTOR.DOCUMENT.ITEM,
     },
     children: [$titleElement, $itemButtonElement],
   });

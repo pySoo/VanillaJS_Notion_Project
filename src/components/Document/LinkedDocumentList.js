@@ -1,8 +1,8 @@
-import { SELECTOR } from "../../constants/selector.js";
 import { TAG } from "../../constants/tag.js";
 import { PATH } from "../../routes/path.js";
 import { createCustomElement } from "../../utils/dom.js";
 import LinkButton from "../Common/LinkButton.js";
+import { CSS_SELECTOR } from "./cssSelector.js";
 
 export default function LinkedDocumentList({ $target, state }) {
   this.state = state;
@@ -16,7 +16,7 @@ export default function LinkedDocumentList({ $target, state }) {
 
   const $linkedDocumentList = createCustomElement({
     tag: TAG.UL,
-    props: { id: SELECTOR.DOCUMENT.LINKED_LIST },
+    props: { id: CSS_SELECTOR.DOCUMENT.LINKED_LIST },
   });
 
   const $linkedButtonGroup = createCustomElement({
