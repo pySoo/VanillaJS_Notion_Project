@@ -29,11 +29,7 @@ function LocalStorage({ key, defaultValue }) {
   };
 
   this.removeItem = () => {
-    try {
-      localStorage.removeItem(key);
-    } catch (error) {
-      alert(error.message);
-    }
+    localStorage.removeItem(key);
   };
 }
 
