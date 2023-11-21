@@ -1,6 +1,6 @@
-import { SELECTOR } from "../constants/selector.js";
-import { TAG } from "../constants/tag.js";
-import { createCustomElement } from "../utils/dom.js";
+import { TAG } from "../../constants/tag.js";
+import { createCustomElement } from "../../utils/dom.js";
+import { CSS_SELECTOR } from "./cssSelector.js";
 
 export default function Editor({ $target, state, onEditing }) {
   this.state = state;
@@ -8,7 +8,7 @@ export default function Editor({ $target, state, onEditing }) {
 
   const $editor = createCustomElement({
     tag: TAG.DIV,
-    props: { id: SELECTOR.EDIT.EDITOR },
+    props: { id: CSS_SELECTOR.EDIT.EDITOR },
   });
 
   $target.appendChild($editor);
