@@ -5,6 +5,7 @@ import { IconSVG } from "../Common/IconSVG.js";
 
 export default function DocumentItem({ $target, state }) {
   const documentTitle = state.title && state.title.trim();
+  const documentTitle = state.title?.trim();
 
   const $expandBtn = createCustomElement({
     tag: TAG.BUTTON,
