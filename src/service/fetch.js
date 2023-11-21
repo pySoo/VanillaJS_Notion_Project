@@ -26,6 +26,6 @@ export const fetchAPI = async (
 
     return await response.json();
   } catch (error) {
-    alert(error.message);
+    console.error(error.message);
   }
 };
