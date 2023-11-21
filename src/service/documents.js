@@ -1,4 +1,4 @@
-import { HTTP_METHOD } from "../constants/api.js";
+import { HTTP_METHOD } from "./api.js";
 import { fetchAPI } from "./fetch.js";
 
 const endPoint = "/documents";

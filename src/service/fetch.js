@@ -1,4 +1,4 @@
-import { BASE_URL, HTTP_METHOD } from "../constants/api.js";
+import { BASE_URL, HTTP_METHOD } from "./api.js";
 import { assert } from "../utils/assert.js";
 
 export const fetchAPI = async (
