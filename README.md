@@ -18,6 +18,12 @@ https://github.com/prgrms-fe-devcourse/FEDC5-5_Project_Notion_VanillaJS/assets/5
 
 <br />
 
+## 🗣️ 프로젝트 개선 과정 및 코드 리뷰
+
+[데브코스 코드 리뷰 링크](https://github.com/prgrms-fe-devcourse/FEDC5-5_Project_Notion_VanillaJS/pull/43)
+
+<br />
+
 ## 📦 파일 구조
 
 ```
