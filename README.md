@@ -9,7 +9,7 @@ https://github.com/prgrms-fe-devcourse/FEDC5-5_Project_Notion_VanillaJS/assets/5
 ## 🏠 프로젝트 구조
 
 1. 반복되는 [DOM 생성 로직](https://github.com/pySoo/VanillaJS_Notion_Project/blob/main/src/utils/dom.js#L8)을 tag, props, children props를 이용하여 추상화
-2. CSS selector 상수화
+2. [CSS selector 상수화](https://github.com/pySoo/VanillaJS_Notion_Project/blob/main/src/components/SideBar.js#L10)
    - DOM을 selecting하는 부분과 DOM 생성시 클래스를 주입하는 부분이 100% 일치
    - 미스매치로 인한 버그 방지
 3. Sidebar 트리 구조를 [재귀 함수를 이용하여 추상화](https://github.com/pySoo/VanillaJS_Notion_Project/blob/main/src/utils/dom.js#L22)
